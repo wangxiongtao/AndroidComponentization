@@ -1,63 +1,71 @@
 package com.jetpack.componentization;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleEventObserver;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.jetpack.componentization.ui.main.MainFragment;
+import com.jetpack.baselib.ToastUtil;
+import com.jetpack.componentization.customerview.CustomerViewActivity;
 import com.jetpack.componentization.ui.main.MainViewModel;
+import com.jetpack.home.HomeActivity;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     MainViewModel mainViewModel;
+    LinearLayout showll;
+    List<TextView> textViewList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mainViewModel=new ViewModelProvider(this).get(MainViewModel.class);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow();
-        getLifecycle().addObserver(new LifecycleEventObserver() {
-            @Override
-            public void onStateChanged(@NonNull LifecycleOwner source, @NonNull Lifecycle.Event event) {
-                Log.e("getLifecycle","=Lifecycle11111=event==>"+event);
-            }
-        });
-
-    }
-
-    public void ClickMyButton(View view) {
-        final Button button= (Button) view;
-        mainViewModel.setUserLiveData("1111111");
-        mainViewModel.getUserLiveData().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                button.setText(s);
-
-            }
-        });
-        getLifecycle().addObserver(new LifecycleEventObserver() {
-            @Override
-            public void onStateChanged(@NonNull LifecycleOwner source, @NonNull Lifecycle.Event event) {
-                Log.e("getLifecycle","=Lifecycle=event==>"+event);
-            }
-        });
+        showll=findViewById(R.id.show_Ll);
+        textViewList=new ArrayList<>();
+        initList();
+        addTextView();
 
 
     }
 
-    public void ClickMyButton2(View view) {
-        startActivity(new Intent(this,MainActivity2.class));
+    void initList(){
+        TextView textView=getTextView("触摸机制",TouchStudyActivity.class);
+        textViewList.add(textView);
+        TextView textView2=getTextView("自定义view", CustomerViewActivity.class);
+        textViewList.add(textView2);
+//        TextView textView3=getTextView("home", HomeActivity.class);
+//        textViewList.add(textView3);
     }
+    TextView getTextView(String text, final Class<?> cls ){
+        TextView textView=new TextView(this);
+        textView.setText(text);
+        textView.setPadding(10,30,10,30);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(v.getContext(),cls);
+                startActivity(intent);
+            }
+        });
+        return  textView;
+    }
+
+
+    private void addTextView(){
+        Iterator<TextView> iterator=textViewList.iterator();
+        while (iterator.hasNext()){
+            TextView textView=iterator.next();
+            showll.addView(textView);
+        }
+
+    }
+
+
 }

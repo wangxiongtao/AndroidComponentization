@@ -22,3 +22,11 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+ext {
+    targetSdkVersion = 29
+    minSdkVersion = 16
+
+}
+ext {
+    isNeedHomeModule = false;
+}

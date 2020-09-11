@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ff0000"
+    tools:context=".customerview.CustomerViewActivity">
+    <TextView
+        android:id="@+id/infoTv"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:onClick="onClick"
+        android:layout_width="match_parent"
+        android:background="@android:color/holo_orange_dark"
+        android:layout_height="wrap_content"/>
+    <com.jetpack.componentization.ui.view.MyCustomerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        tools:context=".customerview.CustomerViewActivity">
+        <TextView
+            android:layout_width="180dp"
+            android:text="TAG-VIEW1"
+            android:background="#f60"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="流式布局"
+            android:background="#f10"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="2222222221111111"
+            android:background="#fA0"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="0000"
+            android:background="#fc0"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="100dp"
+            android:text="100001111"
+            android:background="#fb0"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="600dp"
+            android:text="bbbbbb"
+            android:background="#f80"
+            android:layout_height="wrap_content"/>
+
+
+
+    </com.jetpack.componentization.ui.view.MyCustomerLayout>
+
+
+
+</LinearLayout>

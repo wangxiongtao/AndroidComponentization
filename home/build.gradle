@@ -1,11 +1,18 @@
-apply plugin: 'com.android.application'
+if(isNeedHomeModule.toBoolean()){
+    apply plugin: 'com.android.library'
+}else {
+    apply plugin: 'com.android.application'
+}
+
 
 android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "com.jetpack.componentization"
-        minSdkVersion 16
+        if(!isNeedHomeModule.toBoolean()){
+            applicationId "com.jetpack.home"
+        }
+        minSdkVersion project.minSdkVersion
         targetSdkVersion project.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -19,19 +26,30 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main {
+           if(isNeedHomeModule.toBoolean()){
+               manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+           }else {
+               manifest.srcFile 'src/main/AndroidManifest.xml'
+           }
+        }
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation project(path: ':baselib')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    if(isNeedHomeModule.toBoolean()){
-        implementation project(path: ':home')
+    if(isNeedHomeModule){
+        compileOnly project(path: ':baselib')
+    }else {
+        implementation project(path: ':baselib')
     }
 
 

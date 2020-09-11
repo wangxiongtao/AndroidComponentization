@@ -1,2 +1,4 @@
+include ':baselib'
+include ':home'
 include ':app'
 rootProject.name = "AndroidComponentization"
