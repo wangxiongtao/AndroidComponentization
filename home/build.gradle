@@ -49,6 +49,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(path: ':baselib')
+    implementation project(path: ':lib_annotation_compile')
+    annotationProcessor project(path: ':lib_annotation_compile')
 //    if(isNeedHomeModule){
 //        compileOnly project(path: ':baselib')
 //    }else {

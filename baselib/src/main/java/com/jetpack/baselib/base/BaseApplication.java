@@ -1,16 +1,16 @@
-package com.jetpack.baselib;
+package com.jetpack.baselib.base;
 
 import android.app.Application;
 
-import dagger.hilt.android.HiltAndroidApp;
+import com.jetpack.baselib.router.AppRouter;
 
-@HiltAndroidApp
 public class BaseApplication extends Application {
-    static  BaseApplication application;
+    private static BaseApplication application;
     @Override
     public void onCreate() {
         super.onCreate();
         application=this;
+        AppRouter.getInstance().init(this);
     }
 
     public static BaseApplication getApplication() {

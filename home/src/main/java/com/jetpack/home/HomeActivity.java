@@ -1,11 +1,14 @@
 package com.jetpack.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
+import com.dawn.lib_annotation.BindPath;
 import com.jetpack.baselib.ToastUtil;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+
+@BindPath(path="home/home")
 public class HomeActivity extends AppCompatActivity {
 
     @Override

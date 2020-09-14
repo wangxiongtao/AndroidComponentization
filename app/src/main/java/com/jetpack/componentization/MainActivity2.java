@@ -1,11 +1,11 @@
 package com.jetpack.componentization;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-import com.jetpack.componentization.ui.main.MainFragment;
+import com.dawn.lib_annotation.BindPath;
 
+import androidx.appcompat.app.AppCompatActivity;
+@BindPath(path="app/main2")
 public class MainActivity2 extends AppCompatActivity {
 
     @Override
