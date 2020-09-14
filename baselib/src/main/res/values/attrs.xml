@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="XRadarView">
+        <attr name="count" format="integer" />
+        <attr name="layerCount" format="integer" />
+        <attr name="mDrawableSize" format="dimension|reference" />
+        <attr name="mDrawablePadding" format="dimension|reference" />
+        <attr name="descPadding" format="dimension|reference" />
+        <attr name="titleSize" format="dimension|reference" />
+        <attr name="dataSize" format="dimension|reference" />
+        <attr name="radarPercent" format="float" />
+        <attr name="startColor" format="color|reference" />
+        <attr name="endColor" format="color|reference" />
+        <attr name="cobwebColor" format="color|reference" />
+        <attr name="dataColor" format="color|reference" />
+        <attr name="singleColor" format="color|reference" />
+        <attr name="titleColor" format="color|reference" />
+        <attr name="pointColor" format="color|reference" />
+        <attr name="borderColor" format="color|reference" />
+        <attr name="radiusColor" format="color|reference" />
+        <attr name="boundaryWidth" format="dimension|reference" />
+        <attr name="pointRadius" format="dimension|reference" />
+        <attr name="enabledBorder" format="boolean" />
+        <attr name="enabledAnimation" format="boolean" />
+        <attr name="enabledShowPoint" format="boolean" />
+        <attr name="enabledPolygon" format="boolean" />
+        <attr name="enabledShade" format="boolean" />
+        <attr name="enabledRadius" format="boolean" />
+        <attr name="enabledText" format="boolean" />
+        <attr name="animDuration" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectTabLayout">
+        <attr name="s_textTitles" format="reference" />
+        <attr name="s_textSelectSize" format="integer" />
+        <attr name="s_textUnSelectSize" format="integer" />
+        <attr name="s_textSelectColor" format="color" />
+        <attr name="s_textUnSelectColor" format="color" />
+        <attr name="s_indicatorColor" format="color" />
+        <attr name="s_indicatorWidth" format="dimension" />
+        <attr name="s_tabPadding" format="dimension" />
+        <attr name="s_TextSelectBold" format="boolean" />
+        <attr name="s_tab_warpContent" format="boolean" />
+    </declare-styleable>
+
+    <!--corner_color 边角颜色，
+    scanner_color 扫描线颜色
+    possible_result_color 扫描点颜色
+    frame_color 扫描框边线颜色
+    mask_color 模糊区域颜色
+    label_text  框上方提示
+-->
+    <declare-styleable name="ViewfinderView">
+        <attr name="corner_color" format="color" />
+        <attr name="laser_color" format="color" />
+        <attr name="frame_color" format="color" />
+        <attr name="mask_color" format="color" />
+        <attr name="result_point_color" format="color" />
+        <attr name="result_color" format="color" />
+        <attr name="label_text_color" format="color" />
+        <attr name="label_text" format="string" />
+        <attr name="label_text_size" format="float" />
+    </declare-styleable>
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+</resources>

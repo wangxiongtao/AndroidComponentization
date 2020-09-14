@@ -1,16 +1,17 @@
 package com.jetpack.componentization;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.jetpack.componentization.customerview.CustomerViewActivity;
-import com.jetpack.componentization.ui.main.MainViewModel;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.jetpack.componentization.customerview.CustomerViewActivity;
+import com.jetpack.componentization.jetpack.JetPackActivity;
+import com.jetpack.componentization.ui.main.MainViewModel;
+import com.jetpack.home.life.LifecycleActivity;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     MainViewModel mainViewModel;
     LinearLayout showll;
     List<TextView> textViewList;
+
 
 
     @Override
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         addTextView();
 
 
+
     }
 
     void initList(){
@@ -39,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
         textViewList.add(textView);
         TextView textView2=getTextView("自定义view", CustomerViewActivity.class);
         textViewList.add(textView2);
-//        TextView textView3=getTextView("home", HomeActivity.class);
-//        textViewList.add(textView3);
+        TextView textView3=getTextView("生命周期", LifecycleActivity.class);
+        textViewList.add(textView3);
+        TextView textView4=getTextView("JetPack", JetPackActivity.class);
+        textViewList.add(textView4);
     }
     TextView getTextView(String text, final Class<?> cls ){
         TextView textView=new TextView(this);

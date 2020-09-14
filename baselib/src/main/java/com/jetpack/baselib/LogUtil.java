@@ -1,4 +1,4 @@
-package com.jetpack.componentization.util;
+package com.jetpack.baselib;
 
 import android.util.Log;
 

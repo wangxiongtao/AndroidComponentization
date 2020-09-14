@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="line">#EAEAEA</color>
+    <!--二维码扫描-->
+    <!--corner_color 边角颜色，
+     scanner_color 扫描线颜色
+     possible_result_color 扫描点颜色
+     frame_color 扫描框边线颜色
+     mask_color 模糊区域颜色
+     label_text  框上方提示
+ -->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#B0000000</color>
+    <color name="viewfinder_frame">#90FFFFFF</color>
+    <color name="result_point_color">#C0FFFF00</color>
+    <color name="laser_color">#FB4529</color>
+    <color name="corner_color">#FB4529</color>
+    <color name="end_gradient_color">#FD7C32</color>
+    <color name="trans_end_gradient_color">#88FD7C32</color>
+    <color name="main_color">#FB4529</color>
+    <color name="trans_main_color">#FB4529</color>
+</resources>

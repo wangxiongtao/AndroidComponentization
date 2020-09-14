@@ -1,0 +1,38 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="userBean"
+        type="com.jetpack.componentization.bean.UserBean" />
+    <variable
+        name="userBean1"
+        type="com.jetpack.componentization.bean.UserBean" />
+    <variable
+        name="bindText"
+        type="String" />
+</data>
+    <LinearLayout
+        android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".jetpack.DataBindActivity">
+        <Button
+            android:id="@+id/bindBtn"
+            android:layout_width="match_parent"
+            android:text='@{userBean.name??"1111"}'
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/bindBtn2"
+            android:layout_width="match_parent"
+            android:text="@{userBean1.name2}"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/bindBtn3"
+            android:layout_width="match_parent"
+            android:text="自定义绑定"
+            app:bindText="@{bindText}"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>
