@@ -1,11 +1,10 @@
 package com.jetpack.home;
 
 import android.os.Bundle;
-
-import com.dawn.lib_annotation.BindPath;
-import com.jetpack.baselib.ToastUtil;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.dawn.lib_annotation_compile.BindPath;
+import com.jetpack.baselib.ToastUtil;
 
 
 @BindPath(path="home/home")

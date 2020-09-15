@@ -7,9 +7,10 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     <variable
         name="userBean1"
         type="com.jetpack.componentization.bean.UserBean" />
+
     <variable
-        name="bindText"
-        type="String" />
+        name="userModel"
+        type="com.jetpack.componentization.bean.UserViewModel" />
 </data>
     <LinearLayout
         android:orientation="vertical"
@@ -31,7 +32,23 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:id="@+id/bindBtn3"
             android:layout_width="match_parent"
             android:text="自定义绑定"
-            app:bindText="@{bindText}"
+            android:bindText="@{userModel.bindText}"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="match_parent"
+             android:src="@mipmap/ic_launcher"
+            app:bindText='@{userModel.bindText}'
+            android:layout_height="wrap_content"/>
+        <Button
+
+            android:layout_width="match_parent"
+            android:text="@{userModel.modelName}"
+            android:layout_height="wrap_content"/>
+        <Button
+
+            android:layout_width="match_parent"
+            android:text="@{userModel.orderBean.str}"
+            android:onClick="@{()->userModel.click()}"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>

@@ -1,6 +1,5 @@
 package com.dawn.lib_annotation_compile;
 
-import com.dawn.lib_annotation.BindPath;
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;

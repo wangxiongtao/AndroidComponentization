@@ -1,5 +1,4 @@
 include ':lib_annotation_compile'
-include ':lib_annotation'
 include ':baselib'
 include ':home'
 include ':app'

@@ -4,18 +4,20 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.ObservableField;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.jetpack.componentization.R;
+import com.jetpack.componentization.bean.OrderBean;
 import com.jetpack.componentization.bean.UserBean;
+import com.jetpack.componentization.bean.UserViewModel;
 import com.jetpack.componentization.databinding.ActivityDataBindBinding;
 
 public class DataBindActivity extends AppCompatActivity {
-  ObservableField<String> text=new ObservableField<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityDataBindBinding bindBinding=ActivityDataBindBinding.inflate(getLayoutInflater());
-        setContentView(bindBinding.getRoot());
+        ActivityDataBindBinding bindBinding=DataBindingUtil.setContentView(this, R.layout.activity_data_bind);
         UserBean userBean=new UserBean();
         UserBean userBean1=new UserBean();
         bindBinding.setUserBean(userBean);
@@ -28,8 +30,22 @@ public class DataBindActivity extends AppCompatActivity {
 
 
 
-        text.set("数据绑定");
-        bindBinding.setBindText(text.get());
+
+
+
+        UserViewModel userViewModel= new ViewModelProvider(this).get(UserViewModel.class);
+        userViewModel.modelName.set("使用viewmodel数据绑定");
+        userViewModel.bindText.set("使用viewmodel自定义数据绑定");
+
+        OrderBean orderBean=new OrderBean();
+        orderBean.str="使用viewmodel中引用另外一个类的数据绑定";
+        userViewModel.orderBean.set(orderBean);
+        bindBinding.setUserModel(userViewModel);
+
+
+
+
+
 
 
         bindBinding.bindBtn.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +53,13 @@ public class DataBindActivity extends AppCompatActivity {
             public void onClick(View v) {
                 userBean.setName("双向数据绑定");
                 userBean1.name2.set("双向数据绑定1");
-                text.set("自定义双向数据绑定");
+                userViewModel.modelName.set("使用viewmodel双向数据绑定");
+                userViewModel.bindText.set("使用viewmodel自定义双向数据绑定");
+
+
+                OrderBean orderBean1=new OrderBean();
+                orderBean1.str="使用viewmodel中引用另外一个类的双向数据绑定";
+                userViewModel.orderBean.set(orderBean1);
 
             }
         });

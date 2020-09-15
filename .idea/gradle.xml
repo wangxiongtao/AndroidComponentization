@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baselib" />
             <option value="$PROJECT_DIR$/home" />
-            <option value="$PROJECT_DIR$/lib_annotation" />
             <option value="$PROJECT_DIR$/lib_annotation_compile" />
           </set>
         </option>

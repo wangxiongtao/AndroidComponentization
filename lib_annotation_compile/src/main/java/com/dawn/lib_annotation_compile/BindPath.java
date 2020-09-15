@@ -1,4 +1,4 @@
-package com.dawn.lib_annotation;
+package com.dawn.lib_annotation_compile;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

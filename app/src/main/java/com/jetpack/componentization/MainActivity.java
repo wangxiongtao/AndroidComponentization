@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.dawn.lib_annotation.BindPath;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.dawn.lib_annotation_compile.BindPath;
 import com.jetpack.componentization.customerview.CustomerViewActivity;
 import com.jetpack.componentization.jetpack.JetPackActivity;
 import com.jetpack.componentization.ui.main.MainViewModel;
@@ -15,8 +17,6 @@ import com.jetpack.home.life.LifecycleActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 @BindPath(path="app/main")
 public class MainActivity extends AppCompatActivity {
