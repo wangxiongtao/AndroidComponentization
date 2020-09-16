@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.jetpack.baselib.LogUtil;
 import com.jetpack.baselib.ToastUtil;
 import com.jetpack.componentization.R;
 import com.jetpack.componentization.bean.OrderBean;
@@ -19,6 +20,7 @@ public class DataBindActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityDataBindBinding bindBinding=DataBindingUtil.setContentView(this, R.layout.activity_data_bind);
+        bindBinding.setLifecycleOwner(this);
         UserBean userBean=new UserBean();
         UserBean userBean1=new UserBean();
         bindBinding.setUserBean(userBean);
@@ -43,7 +45,7 @@ public class DataBindActivity extends AppCompatActivity {
         userViewModel.orderBean.set(orderBean);
         userViewModel.editTextString.set("输入绑定");
         userViewModel.dataContent.set("自定义view属性输入绑定");
-        userViewModel.dataSize.set(30);
+        userViewModel.dataSize.set(10);
         bindBinding.setUserModel(userViewModel);
 
 
@@ -69,5 +71,11 @@ public class DataBindActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LogUtil.e("=life=onDestroy===>");
     }
 }

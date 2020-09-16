@@ -7,6 +7,7 @@ import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableInt;
 import androidx.lifecycle.ViewModel;
 
+import com.jetpack.baselib.LogUtil;
 import com.jetpack.baselib.ToastUtil;
 
 public class UserViewModel extends ViewModel {
@@ -25,5 +26,11 @@ public class UserViewModel extends ViewModel {
     public void click1(){
         ToastUtil.toast("点击了==111=>"+bindText.get());
 
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        LogUtil.e("=life=onCleared===>");
     }
 }
