@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.jetpack.baselib.LogUtil;
-import com.jetpack.baselib.ToastUtil;
+import com.jetpack.baselib.util.LogUtil;
+import com.jetpack.baselib.util.ToastUtil;
 import com.jetpack.componentization.R;
 import com.jetpack.componentization.bean.OrderBean;
 import com.jetpack.componentization.bean.UserBean;

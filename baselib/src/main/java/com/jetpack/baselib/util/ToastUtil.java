@@ -1,5 +1,4 @@
-package com.jetpack.baselib;
-import android.content.Context;
+package com.jetpack.baselib.util;
 import android.widget.Toast;
 
 import com.jetpack.baselib.base.BaseApplication;

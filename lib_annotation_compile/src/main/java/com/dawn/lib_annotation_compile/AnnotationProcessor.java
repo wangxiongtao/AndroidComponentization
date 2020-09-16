@@ -110,7 +110,7 @@ public class AnnotationProcessor extends AbstractProcessor {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             String path=entry.getKey();
             String value=entry.getValue();
-            String code="com.jetpack.baselib.router.AppRouter.getInstance().putActivity(\""+entry.getKey()+"\","+entry.getValue()+");\n";
+            String code="com.jetpack.baselib.util.router.AppRouter.getInstance().putActivity(\""+entry.getKey()+"\","+entry.getValue()+");\n";
             builder.addCode(code);
         }
 

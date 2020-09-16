@@ -14,7 +14,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.jetpack.baselib.LogUtil;
+import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.componentization.R;
 
 public class XfermodeView extends View {

@@ -1,3 +1,4 @@
+include ':lib_common'
 include ':lib_annotation_compile'
 include ':baselib'
 include ':home'

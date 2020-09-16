@@ -50,6 +50,12 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:text="@{userModel.orderBean.str}"
             android:onClick="@{(aaaa)->userModel.click(aaaa,123)}"
             android:layout_height="wrap_content"/>
+        <Button
+
+            android:layout_width="match_parent"
+            android:text="@{userModel.netData}"
+            android:onClick="@{()->userModel.checkResource()}"
+            android:layout_height="wrap_content"/>
         <EditText
             android:layout_width="match_parent"
             android:text="@={userModel.editTextString}"

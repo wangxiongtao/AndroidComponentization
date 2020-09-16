@@ -1,4 +1,4 @@
-package com.jetpack.baselib;
+package com.jetpack.baselib.util;
 
 
 import androidx.lifecycle.Lifecycle;

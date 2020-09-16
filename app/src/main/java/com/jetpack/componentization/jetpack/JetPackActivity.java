@@ -6,8 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jetpack.baselib.LifecycleManager;
-import com.jetpack.baselib.ToastUtil;
+import com.jetpack.baselib.util.LifecycleManager;
+import com.jetpack.baselib.util.ToastUtil;
 import com.jetpack.componentization.databinding.ActivityJetPackBinding;
 
 

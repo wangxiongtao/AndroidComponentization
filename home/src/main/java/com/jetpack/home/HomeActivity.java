@@ -4,7 +4,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dawn.lib_annotation_compile.BindPath;
-import com.jetpack.baselib.ToastUtil;
+import com.jetpack.baselib.util.ToastUtil;
 
 
 @BindPath(path="home/home")

@@ -9,7 +9,7 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
 import androidx.databinding.InverseBindingListener;
 
-import com.jetpack.baselib.LogUtil;
+import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.componentization.customerview.DataBindEditText;
 
 public class BindText {

@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jetpack.baselib.LifecycleManager;
-import com.jetpack.baselib.LogUtil;
+import com.jetpack.baselib.util.LifecycleManager;
+import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.home.R;
 
 public class LifecycleActivity extends AppCompatActivity {

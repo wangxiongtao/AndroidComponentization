@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jetpack.baselib.LogUtil;
+import com.jetpack.baselib.util.LogUtil;
 
 public class MyCustomerLayout extends ViewGroup {
     public MyCustomerLayout(Context context) {

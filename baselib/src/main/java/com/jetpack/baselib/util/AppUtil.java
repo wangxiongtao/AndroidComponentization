@@ -1,14 +1,11 @@
-package com.jetpack.baselib;
+package com.jetpack.baselib.util;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.util.Log;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.zip.Deflater;
 
 import dalvik.system.DexFile;
 

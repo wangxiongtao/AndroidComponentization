@@ -1,12 +1,11 @@
-package com.jetpack.baselib.router;
+package com.jetpack.baselib.util.router;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 
-import com.jetpack.baselib.AppUtil;
-import com.jetpack.baselib.LogUtil;
+import com.jetpack.baselib.util.AppUtil;
+import com.jetpack.baselib.util.LogUtil;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
