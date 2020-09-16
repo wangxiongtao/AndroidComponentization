@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DataBindEditText">
+        <attr name="dataContent" format="string"/>
+        <attr name="dataSizeB" format="integer"/>
+    </declare-styleable>
+</resources>

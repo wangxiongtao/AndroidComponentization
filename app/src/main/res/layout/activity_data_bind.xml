@@ -50,6 +50,15 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:text="@{userModel.orderBean.str}"
             android:onClick="@{(aaaa)->userModel.click(aaaa,123)}"
             android:layout_height="wrap_content"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:text="@={userModel.editTextString}"
+            android:layout_height="50dp"/>
+        <com.jetpack.componentization.customerview.DataBindEditText
+            android:layout_width="match_parent"
+            app:dataContent="@={userModel.dataContent}"
+            app:dataSizeB="@{userModel.dataSize}"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </layout>

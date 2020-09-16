@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.jetpack.baselib.ToastUtil;
 import com.jetpack.componentization.R;
 import com.jetpack.componentization.bean.OrderBean;
 import com.jetpack.componentization.bean.UserBean;
@@ -21,7 +22,7 @@ public class DataBindActivity extends AppCompatActivity {
         UserBean userBean=new UserBean();
         UserBean userBean1=new UserBean();
         bindBinding.setUserBean(userBean);
-        userBean.name="数据绑定";
+        userBean.name="数据绑定 @{}：表示单向绑定 @={}表示双向绑定，双向绑定一般需要自己实现，要实现两个方法";
 
 
 
@@ -40,6 +41,9 @@ public class DataBindActivity extends AppCompatActivity {
         OrderBean orderBean=new OrderBean();
         orderBean.str="使用viewmodel中引用另外一个类的数据绑定";
         userViewModel.orderBean.set(orderBean);
+        userViewModel.editTextString.set("输入绑定");
+        userViewModel.dataContent.set("自定义view属性输入绑定");
+        userViewModel.dataSize.set(30);
         bindBinding.setUserModel(userViewModel);
 
 
@@ -60,6 +64,8 @@ public class DataBindActivity extends AppCompatActivity {
                 OrderBean orderBean1=new OrderBean();
                 orderBean1.str="使用viewmodel中引用另外一个类的双向数据绑定";
                 userViewModel.orderBean.set(orderBean1);
+                ToastUtil.toast(userViewModel.editTextString.get());
+                ToastUtil.toast(userViewModel.dataContent.get());
 
             }
         });
