@@ -17,10 +17,5 @@
         <module name="lib_annotation_compile" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="lib_annotation" target="1.7" />
-      <module name="lib_annotation_compile" target="1.7" />
-      <module name="lib_apt" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>

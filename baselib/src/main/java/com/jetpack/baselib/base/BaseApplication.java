@@ -2,7 +2,7 @@ package com.jetpack.baselib.base;
 
 import android.app.Application;
 
-import com.jetpack.baselib.util.router.AppRouter;
+import com.jetpack.baselib.util.LogUtil;
 
 public class BaseApplication extends Application {
     private static BaseApplication application;
@@ -10,7 +10,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         application=this;
-        AppRouter.getInstance().init(this);
+        LogUtil.e("==init==Application=onCreate====>");
     }
 
     public static BaseApplication getApplication() {

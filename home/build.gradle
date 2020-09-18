@@ -6,14 +6,15 @@ if(isNeedHomeModule.toBoolean()){
 
 
 android {
+    def android = rootProject.ext.android
     compileSdkVersion 29
 
     defaultConfig {
         if(!isNeedHomeModule.toBoolean()){
             applicationId "com.jetpack.home"
         }
-        minSdkVersion versions.minSdkVersion
-        targetSdkVersion versions.targetSdkVersion
+        minSdkVersion android.minSdkVersion
+        targetSdkVersion android.targetSdkVersion
         versionCode 1
         versionName "1.0"
 

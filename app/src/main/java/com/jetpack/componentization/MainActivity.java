@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         textViewList.add(textView3);
         TextView textView4=getTextView("JetPack", JetPackActivity.class);
         textViewList.add(textView4);
+        TextView textView5=getTextView("RX测试", RXTestActivity.class);
+        textViewList.add(textView5);
     }
     TextView getTextView(String text, final Class<?> cls ){
         TextView textView=new TextView(this);

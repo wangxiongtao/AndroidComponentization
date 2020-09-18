@@ -17,6 +17,7 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
 import io.reactivex.internal.operators.observable.ObservableCreate;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
@@ -86,20 +87,31 @@ public class UserViewModel extends BaseViewModel {
         new ObservableCreate<String>(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-                LogUtil.e("==thread=1===>"+Thread.currentThread().getName());
+                LogUtil.e("==thread==1==>"+Thread.currentThread().getName());
                 Thread.sleep(8000);
                 emitter.onNext("11111");
-                LogUtil.e("==thread==2==>"+Thread.currentThread().getName());
+
             }
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<String>() {
+        }).observeOn(AndroidSchedulers.mainThread()).map(new Function<String, String>() {
+
+            @Override
+            public String apply(String s) throws Exception {
+                LogUtil.e("==thread==2==>"+Thread.currentThread().getName());
+                return "111";
+            }
+        }).subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                LogUtil.e("==thread=onSubscribe===>"+Thread.currentThread().getName());
+                LogUtil.e("==thread==3==>"+Thread.currentThread().getName());
             }
 
             @Override
             public void onNext(String s) {
-                ToastUtil.toast(s);
+                LogUtil.e("==thread==4==>"+Thread.currentThread().getName());
+//                ToastUtil.toast(s);
 
             }
 
