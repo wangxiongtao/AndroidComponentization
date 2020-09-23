@@ -5,6 +5,7 @@ import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.lib_common.BuildConfig;
 import com.jetpack.lib_common.api.ApiInterface;
 import com.jetpack.lib_common.api.HeadInterceptor;
+import com.jetpack.lib_common.http.converter.FastJsonConverterFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -56,7 +57,10 @@ public class HttpManager {
         retrofit = new Retrofit.Builder()
                 .baseUrl(sAPIBASEURL)
 //                .addConverterFactory(FastJsonConverterFactory.create())
+                .addConverterFactory(FastJsonConverterFactory.create())
+                .addCallAdapterFactory(new LiveData2CallAdapterFactory())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(new Inter2CallAdapterFactory())
                 .client(getOkHttpClient())
                .build();
         apiInterface=retrofit.create(ApiInterface.class);
@@ -76,7 +80,4 @@ public class HttpManager {
         sHEADINTERCEPTOR = headInterceptor;
     }
 
-    public static ApiInterface get(){
-        return HttpManager.getInstance().getApiInterface();
-    }
 }

@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         textViewList.add(textView4);
         TextView textView5=getTextView("RX测试", RXTestActivity.class);
         textViewList.add(textView5);
+        TextView textView6=getTextView("ProxyInstance动态代理", ProxyInstanceActivity.class);
+        textViewList.add(textView6);
     }
     TextView getTextView(String text, final Class<?> cls ){
         TextView textView=new TextView(this);

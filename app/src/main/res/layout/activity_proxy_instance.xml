@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProxyInstanceActivity">
+
+    <TextView
+        android:onClick="toLiveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="通过代理的invoke方法调用ServiceMethods.invoke方法
+        拿到方法的注解，然后根据注解构建HttpCall对象，同时又通过了一个CallAdapter对象中的adapter方法把这个HttpCall回调出去，让子类在进行一次处理，
+处理完之后还要再返回Call，Retrofit中提供了默认的适配器，并通过装饰者模式，对httpCall对象中的异步请求enqueue方法结果增加了切换线程的功能" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:onClick="btnClick"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

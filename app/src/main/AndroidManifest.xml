@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RXTestActivity"></activity>
+        <activity android:name=".ProxyInstanceActivity"></activity>
+        <activity android:name=".RXTestActivity" />
         <activity android:name=".MainActivity3" />
         <activity android:name=".jetpack.DataBindActivity" />
         <activity android:name=".jetpack.JetPackActivity" />

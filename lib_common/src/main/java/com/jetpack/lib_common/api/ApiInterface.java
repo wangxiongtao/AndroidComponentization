@@ -1,5 +1,7 @@
 package com.jetpack.lib_common.api;
 
+import androidx.lifecycle.MutableLiveData;
+
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
@@ -12,4 +14,8 @@ public interface ApiInterface {
      */
     @GET("/app/checkResource")
     Observable<ResponseBody> checkAppResource(@Query("timestamp") String timestamp);
+    @GET("/app/checkResource")
+    MutableLiveData<ResponseBody> checkAppResource1(@Query("timestamp") String timestamp);
+    @GET("/app/checkResource")
+    Integer checkAppResource2(@Query("timestamp") String timestamp);
 }

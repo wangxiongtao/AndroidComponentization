@@ -8,6 +8,7 @@ import androidx.databinding.ObservableInt;
 
 import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.baselib.util.ToastUtil;
+import com.jetpack.lib_common.api.ApiRequest;
 
 import java.io.IOException;
 
@@ -44,42 +45,41 @@ public class UserViewModel extends BaseViewModel {
 
 
     public void checkResource(){
+
+
+
+        ApiRequest.checkAppResource("11", new Observer<ResponseBody>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                netData.set("开始请求");
+                LogUtil.e("==http===开始请求");
+            }
+
+            @Override
+            public void onNext(ResponseBody responseBody) {
+                try {
+                    String str=responseBody.string();
+                    LogUtil.e("==http===请求成功o===>"+str);
+                    netData.set(str);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                LogUtil.e("==http===请求失败o===>"+e.getLocalizedMessage());
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+
         testRxjava();
-              getApiInterface()
-                .checkAppResource("12234")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ResponseBody>(){
 
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        netData.set("开始请求");
-                        LogUtil.e("==http===开始请求");
-
-                    }
-
-                    @Override
-                    public void onNext(ResponseBody o) {
-                        try {
-                            String str=o.string();
-                            LogUtil.e("==http===请求成功o===>"+str);
-                            netData.set(str);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        LogUtil.e("==http===请求失败o===>"+e.getLocalizedMessage());
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        LogUtil.e("==http===请求onComplete===>");
-                    }
-                });
-        ;
     }
 
 
