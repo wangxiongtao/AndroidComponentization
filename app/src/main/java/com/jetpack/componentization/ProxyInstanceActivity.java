@@ -9,7 +9,7 @@ import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.baselib.util.ToastUtil;
 import com.jetpack.componentization.util.proxy.ProxyClient;
 import com.jetpack.componentization.util.proxy.ProxyInterface;
-import com.jetpack.lib_common.api.ApiRequest;
+import com.jetpack.lib_common.api.ApiRepository;
 
 public class ProxyInstanceActivity extends AppCompatActivity {
 
@@ -22,7 +22,7 @@ public class ProxyInstanceActivity extends AppCompatActivity {
     }
 
     public void toLiveData(View view) {
-        ApiRequest.checkAppResource1("11").observe(ProxyInstanceActivity.this, (f)->{
+        ApiRepository.checkAppResource1("11").observe(ProxyInstanceActivity.this, (f)->{
             try {
                 LogUtil.e("===>observe===>"+f.string());
             } catch (Exception e) {
@@ -35,7 +35,7 @@ public class ProxyInstanceActivity extends AppCompatActivity {
     }
 
     public void btnClick(View view) {
-        Integer integer=ApiRequest.checkAppResource2("1111");
+        Integer integer= ApiRepository.checkAppResource2("1111");
         LogUtil.e("===>btnClick==>"+integer);
     }
 }

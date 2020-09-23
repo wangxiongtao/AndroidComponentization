@@ -3,14 +3,23 @@ package com.jetpack.componentization;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleEventObserver;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.jetpack.baselib.util.LogUtil;
+import com.jetpack.baselib.base.RxLifeObserver;
 import com.jetpack.componentization.databinding.ActivityRXTestBinding;
 import com.jetpack.componentization.ui.rx.ChangeDataCallback;
 import com.jetpack.componentization.ui.rx.MyObservable;
 import com.jetpack.componentization.ui.rx.ObserverCallback;
 import com.jetpack.componentization.ui.rx.RXObserver;
+
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
 
 public class RXTestActivity extends AppCompatActivity {
     ActivityRXTestBinding binding;
@@ -21,6 +30,71 @@ public class RXTestActivity extends AppCompatActivity {
         binding=ActivityRXTestBinding.inflate(getLayoutInflater());
         fun();
         setContentView(binding.getRoot());
+        getLifecycle().addObserver(new LifecycleEventObserver() {
+            @Override
+            public void onStateChanged(@NonNull LifecycleOwner source, @NonNull Lifecycle.Event event) {
+
+            }
+        });
+
+        Observable.interval(1, TimeUnit.SECONDS).subscribe(new RxLifeObserver<Long>(this) {
+
+
+            @Override
+            public void onSubscribe() {
+
+            }
+
+            @Override
+            public void onNext(Long aLong) {
+                LogUtil.e("==interval1===>"+aLong);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+        Observable.interval(2, TimeUnit.SECONDS).subscribe(new RxLifeObserver<Long>(this) {
+
+
+            @Override
+            public void onSubscribe() {
+
+            }
+
+            @Override
+            public void onNext(Long aLong) {
+                LogUtil.e("==interval2===>"+aLong);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
     }
 
     public void toFun(){

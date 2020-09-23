@@ -11,6 +11,9 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     <variable
         name="userModel"
         type="com.jetpack.componentization.bean.UserViewModel" />
+    <variable
+        name="vm"
+        type="com.jetpack.componentization.bean.UserViewModel" />
 </data>
     <LinearLayout
         android:orientation="vertical"

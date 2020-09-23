@@ -6,11 +6,14 @@ import android.widget.Button;
 import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableInt;
 
+import com.jetpack.baselib.base.BaseViewModel;
+import com.jetpack.baselib.base.RxLifeObserver;
 import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.baselib.util.ToastUtil;
-import com.jetpack.lib_common.api.ApiRequest;
+import com.jetpack.lib_common.api.ApiRepository;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -32,10 +35,12 @@ public class UserViewModel extends BaseViewModel {
     public ObservableField<String>netData=new ObservableField<>("点击请求");
     public ObservableInt dataSize=new ObservableInt();
 
+
     public void click(View view, int dddd){
         Button v= (Button) view;
         ToastUtil.toast("点击了=view===>"+v.getText().toString()+"----"+dddd);
         checkResource();
+
 
     }
     public void click1(){
@@ -45,18 +50,69 @@ public class UserViewModel extends BaseViewModel {
 
 
     public void checkResource(){
+        Observable.interval(1, TimeUnit.SECONDS).subscribe(new RxLifeObserver<Long>(this) {
 
 
-
-        ApiRequest.checkAppResource("11", new Observer<ResponseBody>() {
             @Override
-            public void onSubscribe(Disposable d) {
-                netData.set("开始请求");
+            public void onSubscribe() {
+
+            }
+
+            @Override
+            public void onNext(Long aLong) {
+                LogUtil.e("==interval1===>"+aLong);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+        Observable.interval(2, TimeUnit.SECONDS).subscribe(new RxLifeObserver<Long>(this) {
+
+
+            @Override
+            public void onSubscribe() {
+
+            }
+
+            @Override
+            public void onNext(Long aLong) {
+                LogUtil.e("==interval2===>"+aLong);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+
+
+        ApiRepository.checkAppResource("11", new RxLifeObserver<ResponseBody>(this) {
+
+
+            @Override
+            public void onSubscribe() {
+                netData.set("开始请求223344");
                 LogUtil.e("==http===开始请求");
             }
 
             @Override
             public void onNext(ResponseBody responseBody) {
+                LogUtil.e("==thread==onNext==>"+Thread.currentThread().getName());
                 try {
                     String str=responseBody.string();
                     LogUtil.e("==http===请求成功o===>"+str);
@@ -127,17 +183,4 @@ public class UserViewModel extends BaseViewModel {
         });
     }
 
-
-
-    public static <T> Observable<T> mainThread(Observable<T> o){
-        return o.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-    }
-
-
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-        LogUtil.e("=life=onCleared===>");
-    }
 }

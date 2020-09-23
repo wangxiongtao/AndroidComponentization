@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.dawn.lib_annotation_compile.BindPath;
 import com.jetpack.componentization.customerview.CustomerViewActivity;
 import com.jetpack.componentization.jetpack.JetPackActivity;
+import com.jetpack.componentization.mvvm.MVVM2Activity;
+import com.jetpack.componentization.mvvm.MVVMActivity;
 import com.jetpack.componentization.ui.main.MainViewModel;
 import com.jetpack.home.life.LifecycleActivity;
 
@@ -52,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
         textViewList.add(textView5);
         TextView textView6=getTextView("ProxyInstance动态代理", ProxyInstanceActivity.class);
         textViewList.add(textView6);
+        TextView textView7=getTextView("MVVM", MVVMActivity.class);
+        textViewList.add(textView7);
+        TextView textView8=getTextView("MVVM2", MVVM2Activity.class);
+        textViewList.add(textView8);
     }
     TextView getTextView(String text, final Class<?> cls ){
         TextView textView=new TextView(this);
