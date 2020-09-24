@@ -20,6 +20,7 @@ import com.jetpack.componentization.ui.rx.RXObserver;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
+import io.reactivex.functions.Function;
 
 public class RXTestActivity extends AppCompatActivity {
     ActivityRXTestBinding binding;
@@ -37,7 +38,19 @@ public class RXTestActivity extends AppCompatActivity {
             }
         });
 
-        Observable.interval(1, TimeUnit.SECONDS).subscribe(new RxLifeObserver<Long>(this) {
+        Observable.interval(1, TimeUnit.SECONDS)
+                .map(new Function<Long, Long>() {
+
+                    @Override
+                    public Long apply(Long aLong) throws Exception {
+
+
+                        LogUtil.e("==interval1=apply==>"+aLong);
+
+                        return aLong;
+                    }
+                })
+                .subscribe(new RxLifeObserver<Long>(this) {
 
 
             @Override
