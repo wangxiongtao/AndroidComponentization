@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         textViewList.add(textView7);
         TextView textView8=getTextView("MVVM2", MVVM2Activity.class);
         textViewList.add(textView8);
+        TextView LiveDataActivity=getTextView("LiveDataActivity", LiveDataActivity.class);
+        textViewList.add(LiveDataActivity);
+        TextView ConstraintLayout=getTextView("ConstraintLayout", ConstraintLayoutActivity.class);
+        textViewList.add(ConstraintLayout);
     }
     TextView getTextView(String text, final Class<?> cls ){
         TextView textView=new TextView(this);

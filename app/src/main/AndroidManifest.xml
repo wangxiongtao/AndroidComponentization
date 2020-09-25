@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvvm.MVVM2Activity"></activity>
+        <activity android:name=".ConstraintLayoutActivity"></activity>
+        <activity android:name=".LiveDataActivity" />
+        <activity android:name=".mvvm.MVVM2Activity" />
         <activity android:name=".mvvm.MVVMActivity" />
         <activity android:name=".ProxyInstanceActivity" />
         <activity android:name=".RXTestActivity" />
