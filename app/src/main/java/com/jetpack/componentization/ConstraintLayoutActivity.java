@@ -1,10 +1,19 @@
 package com.jetpack.componentization;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.jetpack.baselib.util.LogUtil;
+import com.jetpack.componentization.ui.view.FloatDragView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,9 +56,120 @@ public class ConstraintLayoutActivity extends AppCompatActivity {
             LogUtil.e("==arr==>"+ Arrays.toString(arr));
         }
 
+        Button button=findViewById(R.id.button2);
+//        FloatDragView floatDragView=new FloatDragView();
+////        floatDragView.setTargetView(button);
 
 
 
 
+
+
+
+
+
+        LinearLayout ll1=findViewById(R.id.ll1);
+        FloatDragView floatDragView2=new FloatDragView();
+        floatDragView2.setTargetView(ll1);
+
+        RecyclerView recyclerView=findViewById(R.id.rv);
+        recyclerView.setAdapter(new MyAdapter());
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    class MyAdapter extends RecyclerView.Adapter<MyAdapter.Vh>{
+
+
+        @NonNull
+        @Override
+        public Vh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            TextView textView=new TextView(parent.getContext());
+            textView.setPadding(10,10,10,10);
+            textView.setTextColor(Color.parseColor("#FF6600"));
+            textView.setTextSize(32);
+            return new Vh(textView);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull Vh holder, int position) {
+            ((TextView)holder.itemView).setText("item=====>"+position);
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return 100;
+        }
+
+        class Vh extends RecyclerView.ViewHolder{
+
+            public Vh(@NonNull View itemView) {
+                super(itemView);
+            }
+        }
     }
 }
