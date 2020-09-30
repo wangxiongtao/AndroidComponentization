@@ -9,8 +9,8 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 
-import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.baselib.base.RxLifeObserver;
+import com.jetpack.baselib.util.LogUtil;
 import com.jetpack.componentization.databinding.ActivityRXTestBinding;
 import com.jetpack.componentization.ui.rx.ChangeDataCallback;
 import com.jetpack.componentization.ui.rx.MyObservable;
@@ -24,11 +24,12 @@ import io.reactivex.functions.Function;
 
 public class RXTestActivity extends AppCompatActivity {
     ActivityRXTestBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding=ActivityRXTestBinding.inflate(getLayoutInflater());
+        binding = ActivityRXTestBinding.inflate(getLayoutInflater());
         fun();
         setContentView(binding.getRoot());
         getLifecycle().addObserver(new LifecycleEventObserver() {
@@ -45,35 +46,29 @@ public class RXTestActivity extends AppCompatActivity {
                     public Long apply(Long aLong) throws Exception {
 
 
-                        LogUtil.e("==interval1=apply==>"+aLong);
+                        LogUtil.e("==interval1=apply==>" + aLong);
 
                         return aLong;
                     }
                 })
                 .subscribe(new RxLifeObserver<Long>(this) {
 
+                    @Override
+                    public void onNext(Long aLong) {
+                        LogUtil.e("==interval1===>" + aLong);
 
-            @Override
-            public void onSubscribe() {
+                    }
 
-            }
+                    @Override
+                    public void onError(Throwable e) {
 
-            @Override
-            public void onNext(Long aLong) {
-                LogUtil.e("==interval1===>"+aLong);
+                    }
 
-            }
+                    @Override
+                    public void onComplete() {
 
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
+                    }
+                });
         Observable.interval(2, TimeUnit.SECONDS).subscribe(new RxLifeObserver<Long>(this) {
 
 
@@ -84,7 +79,7 @@ public class RXTestActivity extends AppCompatActivity {
 
             @Override
             public void onNext(Long aLong) {
-                LogUtil.e("==interval2===>"+aLong);
+                LogUtil.e("==interval2===>" + aLong);
 
             }
 
@@ -100,17 +95,9 @@ public class RXTestActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
     }
 
-    public void toFun(){
+    public void toFun() {
         new MyObservable(new ObserverCallback() {
             @Override
             public void callBack(RXObserver observer) {
@@ -127,61 +114,49 @@ public class RXTestActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-    public void fun(){
+    public void fun() {
         new MyObservable(new ObserverCallback() {
             @Override
             public void callBack(RXObserver observer) {
-                LogUtil.e("==thread=1==>"+Thread.currentThread().getName());
+                LogUtil.e("==thread=1==>" + Thread.currentThread().getName());
                 observer.onNext("111");
             }
         }).mainHandler().map(new ChangeDataCallback() {
             @Override
             public String changeData(String s) {
-                LogUtil.e("==thread=2==>"+Thread.currentThread().getName());
-                return s+"vvvv";
+                LogUtil.e("==thread=2==>" + Thread.currentThread().getName());
+                return s + "vvvv";
             }
         }).map(new ChangeDataCallback() {
             @Override
             public String changeData(String s) {
-                LogUtil.e("==thread=3==>"+Thread.currentThread().getName());
-                return s+"bbbbbb";
+                LogUtil.e("==thread=3==>" + Thread.currentThread().getName());
+                return s + "bbbbbb";
             }
         }).newThread("thread--1")
                 .newThread("thread--2")
                 .addObserver(new RXObserver() {
                     @Override
                     public void onNext(String s) {
-                        LogUtil.e("==thread=4==>"+Thread.currentThread().getName());
-                        LogUtil.e("==next=thread==>"+s);
+                        LogUtil.e("==thread=4==>" + Thread.currentThread().getName());
+                        LogUtil.e("==next=thread==>" + s);
                         binding.rxTv.setText(s);
                     }
                 });
 
 
-
-        MyObservable myObservable =new MyObservable(new ObserverCallback() {
+        MyObservable myObservable = new MyObservable(new ObserverCallback() {
             @Override
             public void callBack(RXObserver observer) {
-                LogUtil.e("==callBack=thread=1==>"+Thread.currentThread().getName());
+                LogUtil.e("==callBack=thread=1==>" + Thread.currentThread().getName());
             }
         });
 
-        Handler handler=new Handler();
+        Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
-                new Thread("2222"){
+                new Thread("2222") {
                     @Override
                     public void run() {
                         super.run();
@@ -198,9 +173,6 @@ public class RXTestActivity extends AppCompatActivity {
         });
 
 
-
-
-
 //        ObserverThread observerThread= (ObserverThread) myObservable.newThread("111");
 //        observerThread.addObserver(new RXObserver() {
 //            @Override
@@ -210,11 +182,6 @@ public class RXTestActivity extends AppCompatActivity {
 //        });
 
     }
-
-
-
-
-
 
 
 }

@@ -36,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         textViewList=new ArrayList<>();
         initList();
         addTextView();
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//
+//        }
 
 
 

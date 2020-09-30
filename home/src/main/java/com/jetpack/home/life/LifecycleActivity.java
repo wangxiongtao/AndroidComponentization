@@ -109,4 +109,9 @@ public class LifecycleActivity extends AppCompatActivity {
         Intent intent=new Intent(view.getContext(),LifecycleActivity.class);
         startActivity(intent);
     }
+
+    public void onClick3(View view) {
+        Intent intent=new Intent(view.getContext(),MainActivity.class);
+        startActivity(intent);
+    }
 }
